@@ -2,6 +2,7 @@ package com.android.hilt
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
@@ -17,10 +18,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel.getCurrentValue()
+        mainViewModel.getAllMovies()
 
-        mainViewModel.currentValue.observe(this, Observer {
-            currentValue.text = it.toString()
+        mainViewModel.moviesResult.observe(this, Observer {
+            Log.e("MOVIES", it.toString())
         })
 
         next.setOnClickListener {

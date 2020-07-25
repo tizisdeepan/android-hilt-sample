@@ -15,11 +15,5 @@ class DetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
-
-        currentValue.text = mainViewModel.currentValue.value.toString()
-
-        mainViewModel.currentValue.observe(this, Observer {
-            currentValue.text = it.toString()
-        })
     }
 }

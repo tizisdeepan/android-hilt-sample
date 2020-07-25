@@ -1,15 +1,17 @@
 package com.android.hilt
 
 import androidx.hilt.lifecycle.ViewModelInject
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
+import androidx.lifecycle.*
+import com.android.hilt.data.Movies
+import com.android.hilt.data.MoviesUseCase
+import com.android.hilt.data.Result
 
-class MainViewModel @ViewModelInject constructor(private val mainRepository: MainRepository) :
+class MainViewModel @ViewModelInject constructor(private val mainUseCase: MoviesUseCase) :
     ViewModel() {
 
-    var currentValue: MutableLiveData<Int> = mainRepository.currentValue
+    lateinit var moviesResult: LiveData<Result<List<Movies>>>
 
-    fun getCurrentValue() {
-        mainRepository.getCurrentValue()
+    fun getAllMovies() {
+        moviesResult = mainUseCase.getAllMovies().asLiveData(viewModelScope.coroutineContext)
     }
 }
