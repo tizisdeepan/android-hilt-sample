@@ -14,12 +14,14 @@ import javax.inject.Inject
 class MealsUseCase @Inject constructor(var local: MealsLocalDS, var remote: MealsRemoteDs) {
 
     fun getAllMovies(): Flow<Result<List<Meals>>> = flow {
+        var localResult: Result<List<Meals>> = Result.Failure()
         local.getAllMovies().collect {
-            if (it is Result.Success && it.data.isNotEmpty()) emit(it)
+            if (it is Result.Success && it.data.isNotEmpty()) localResult = it
         }
         remote.getAllMovies().collect {
             if (it is Result.Success && it.data.isNotEmpty()) local.insertMeals(it.data)
-            emit(it)
+            if (it is Result.Failure) emit(localResult)
+            else emit(it)
         }
     }.flowOn(Dispatchers.IO)
 }

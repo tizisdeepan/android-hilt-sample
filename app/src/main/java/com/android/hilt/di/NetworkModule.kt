@@ -14,5 +14,5 @@ class NetworkModule {
 
     @Provides
     @Singleton
-    fun getApiService(): ApiService = ApiBuilder().makeApiCall()
+    fun getApiService(): ApiService = ApiBuilder.makeApiCall()
 }

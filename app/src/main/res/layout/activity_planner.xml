@@ -11,11 +11,10 @@
         android:id="@+id/dataFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@android:color/white"
         android:visibility="gone">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/mealsRecyclerView"
+            android:id="@+id/plannerRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
