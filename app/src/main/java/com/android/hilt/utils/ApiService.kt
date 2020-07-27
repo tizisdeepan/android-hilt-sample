@@ -1,4 +1,4 @@
-package com.android.hilt.data
+package com.android.hilt.utils
 
 import com.android.hilt.data.entities.responses.MealsObject
 import retrofit2.Call

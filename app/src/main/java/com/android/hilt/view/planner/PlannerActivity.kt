@@ -1,4 +1,4 @@
-package com.android.hilt
+package com.android.hilt.view.planner
 
 import android.os.Bundle
 import android.util.Log
@@ -6,22 +6,24 @@ import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
-import com.android.hilt.data.Result
+import com.android.hilt.R
+import com.android.hilt.data.entities.responses.Result
+import com.android.hilt.view.planner.PlannerViewModel
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 
 @AndroidEntryPoint
-class MealsPlannerActivity : AppCompatActivity() {
+class PlannerActivity : AppCompatActivity() {
 
-    private val mainViewModel: MainViewModel by viewModels()
+    private val plannerViewModel: PlannerViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        mainViewModel.getAllMovies()
+        plannerViewModel.getAllMovies()
 
-        mainViewModel.mealsResult.observe(this, Observer {
+        plannerViewModel.mealsResult.observe(this, Observer {
             Log.e("MOVIES", it.toString())
             when (it) {
                 is Result.Loading -> {

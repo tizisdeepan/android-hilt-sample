@@ -1,4 +1,4 @@
-package com.android.hilt.data
+package com.android.hilt.utils
 
 import com.android.hilt.BuildConfig
 import com.google.gson.GsonBuilder

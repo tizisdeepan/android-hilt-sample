@@ -1,4 +1,4 @@
-package com.android.hilt.data
+package com.android.hilt.data.entities.responses
 
 sealed class Result<out DATA> {
     data class Success<DATA>(val data: DATA) : Result<DATA>()

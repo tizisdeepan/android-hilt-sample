@@ -13,10 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".RecipeActivity"
+            android:name=".view.recipe.RecipeActivity"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".MealsPlannerActivity"
+            android:name=".view.planner.PlannerActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

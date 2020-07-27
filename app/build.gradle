@@ -17,9 +17,9 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
-        buildConfigField "String", "BASE_URL", "\""+getLocalValue("baseUrl")+"\""
-        buildConfigField "String", "HOST", "\""+getLocalValue("host")+"\""
-        buildConfigField "String", "API_KEY", "\""+getLocalValue("apiKey")+"\""
+        buildConfigField "String", "BASE_URL", "\"" + getLocalValue("baseUrl") + "\""
+        buildConfigField "String", "HOST", "\"" + getLocalValue("host") + "\""
+        buildConfigField "String", "API_KEY", "\"" + getLocalValue("apiKey") + "\""
     }
 
     buildTypes {
@@ -71,4 +71,9 @@ dependencies {
 
     //LiveData extensions
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+
+    //Room
+    implementation "androidx.room:room-runtime:2.2.5"
+    implementation "androidx.room:room-ktx:2.2.5"
+    kapt "androidx.room:room-compiler:2.2.5"
 }

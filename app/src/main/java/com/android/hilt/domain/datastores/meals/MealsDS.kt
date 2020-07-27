@@ -1,5 +1,6 @@
-package com.android.hilt.data
+package com.android.hilt.domain.datastores.meals
 
+import com.android.hilt.data.entities.responses.Result
 import com.android.hilt.data.entities.Meals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
