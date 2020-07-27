@@ -1,8 +1,8 @@
 package com.android.hilt.domain.datastores.meals
 
-import com.android.hilt.data.entities.responses.Result
+import com.android.hilt.data.Result
 import com.android.hilt.domain.database.MealPlannerDatabase
-import com.android.hilt.data.entities.Meals
+import com.android.hilt.data.Meals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn

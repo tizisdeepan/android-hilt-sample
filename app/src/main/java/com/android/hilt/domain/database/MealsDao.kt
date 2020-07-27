@@ -4,7 +4,7 @@ import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Transaction
-import com.android.hilt.data.entities.Meals
+import com.android.hilt.data.Meals
 
 @Dao
 abstract class MealsDao {

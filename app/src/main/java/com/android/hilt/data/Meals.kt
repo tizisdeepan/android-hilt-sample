@@ -1,4 +1,4 @@
-package com.android.hilt.data.entities
+package com.android.hilt.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

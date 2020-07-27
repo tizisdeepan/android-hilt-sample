@@ -1,6 +1,6 @@
 package com.android.hilt.utils
 
-import com.android.hilt.data.entities.responses.MealsObject
+import com.android.hilt.data.MealsObject
 import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query

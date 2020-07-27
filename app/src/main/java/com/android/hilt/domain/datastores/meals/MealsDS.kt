@@ -1,7 +1,7 @@
 package com.android.hilt.domain.datastores.meals
 
-import com.android.hilt.data.entities.responses.Result
-import com.android.hilt.data.entities.Meals
+import com.android.hilt.data.Result
+import com.android.hilt.data.Meals
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 

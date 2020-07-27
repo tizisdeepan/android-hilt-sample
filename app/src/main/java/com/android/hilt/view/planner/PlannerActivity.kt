@@ -7,8 +7,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import com.android.hilt.R
-import com.android.hilt.data.entities.responses.Result
-import com.android.hilt.view.planner.PlannerViewModel
+import com.android.hilt.data.Result
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_main.*
 

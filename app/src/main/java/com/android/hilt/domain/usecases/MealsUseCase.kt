@@ -1,9 +1,9 @@
 package com.android.hilt.domain.usecases
 
-import com.android.hilt.data.entities.responses.Result
+import com.android.hilt.data.Result
 import com.android.hilt.domain.datastores.meals.MealsLocalDS
 import com.android.hilt.domain.datastores.meals.MealsRemoteDs
-import com.android.hilt.data.entities.Meals
+import com.android.hilt.data.Meals
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.collect
