@@ -2,16 +2,18 @@ package com.android.hilt
 
 import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.*
-import com.android.hilt.data.Movies
-import com.android.hilt.data.MoviesUseCase
+import com.android.hilt.data.MealsUseCase
 import com.android.hilt.data.Result
+import com.android.hilt.data.entities.Meals
+import kotlinx.coroutines.flow.onStart
 
-class MainViewModel @ViewModelInject constructor(private val mainUseCase: MoviesUseCase) :
+class MainViewModel @ViewModelInject constructor(private val mainUseCase: MealsUseCase) :
     ViewModel() {
 
-    lateinit var moviesResult: LiveData<Result<List<Movies>>>
+    var mealsResult: LiveData<Result<List<Meals>>> = MutableLiveData()
 
     fun getAllMovies() {
-        moviesResult = mainUseCase.getAllMovies().asLiveData(viewModelScope.coroutineContext)
+        mealsResult = mainUseCase.getAllMovies().onStart { emit(Result.Loading) }
+            .asLiveData(viewModelScope.coroutineContext)
     }
 }

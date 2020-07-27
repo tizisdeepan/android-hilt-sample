@@ -16,6 +16,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField "String", "BASE_URL", "\""+getLocalValue("baseUrl")+"\""
+        buildConfigField "String", "HOST", "\""+getLocalValue("host")+"\""
+        buildConfigField "String", "API_KEY", "\""+getLocalValue("apiKey")+"\""
     }
 
     buildTypes {
@@ -35,6 +39,12 @@ android {
     }
 }
 
+def getLocalValue(name) {
+    Properties properties = new Properties()
+    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+    return properties.getProperty(name)
+}
+
 dependencies {
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
@@ -46,6 +56,8 @@ dependencies {
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+
+    implementation "androidx.recyclerview:recyclerview:1.1.0"
 
     //Hilt
     implementation 'com.google.dagger:hilt-android:2.28.1-alpha'

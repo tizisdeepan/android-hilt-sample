@@ -8,7 +8,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.activity_details.*
 
 @AndroidEntryPoint
-class DetailsActivity : AppCompatActivity() {
+class RecipeActivity : AppCompatActivity() {
 
     private val mainViewModel: MainViewModel by viewModels()
 

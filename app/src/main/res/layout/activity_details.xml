@@ -6,7 +6,7 @@
     android:layout_margin="30dp"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".MealsPlannerActivity">
 
     <TextView
         android:id="@+id/currentValue"
