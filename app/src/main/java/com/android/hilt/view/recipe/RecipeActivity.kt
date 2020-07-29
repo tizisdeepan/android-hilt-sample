@@ -29,13 +29,13 @@ class RecipeActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         title = "Recipe"
 
-        recipeId?.let {
-            recipeViewModel.getRecipe(it)
-        }
-
         recipeViewModel.recipeResult.observe(this, Observer {
             handleResult(it)
         })
+
+        recipeId?.let {
+            recipeViewModel.getRecipe(it)
+        }
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

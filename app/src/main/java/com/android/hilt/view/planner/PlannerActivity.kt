@@ -27,11 +27,11 @@ class PlannerActivity : AppCompatActivity() {
 
         plannerRecyclerView.layoutManager = LinearLayoutManager(this)
 
-        plannerViewModel.getAllMovies()
-
         plannerViewModel.mealsResult.observe(this, Observer {
             handleResult(it)
         })
+
+        plannerViewModel.getAllMovies()
     }
 
     private fun handleResult(result: Result<List<Meals>>) {

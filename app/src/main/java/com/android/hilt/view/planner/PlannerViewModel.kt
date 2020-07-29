@@ -10,10 +10,12 @@ import kotlinx.coroutines.flow.onStart
 class PlannerViewModel @ViewModelInject constructor(private val useCase: MealsUseCase) :
     ViewModel() {
 
-    var mealsResult: LiveData<Result<List<Meals>>> = MutableLiveData()
+    var mealsResult: MediatorLiveData<Result<List<Meals>>> = MediatorLiveData()
 
     fun getAllMovies() {
-        mealsResult = useCase.getAllMovies().onStart { emit(Result.Loading) }
-            .asLiveData(viewModelScope.coroutineContext)
+        mealsResult.addSource(useCase.getAllMovies().onStart { emit(Result.Loading) }
+            .asLiveData(viewModelScope.coroutineContext)) {
+            mealsResult.value = it
+        }
     }
 }

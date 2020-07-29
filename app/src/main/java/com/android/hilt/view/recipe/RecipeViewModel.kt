@@ -10,10 +10,12 @@ import kotlinx.coroutines.flow.onStart
 class RecipeViewModel @ViewModelInject constructor(private val useCase: RecipeUseCase) :
     ViewModel() {
 
-    var recipeResult: LiveData<Result<RecipeObject>> = MutableLiveData()
+    var recipeResult: MediatorLiveData<Result<RecipeObject>> = MediatorLiveData()
 
     fun getRecipe(recipeId: Int) {
-        recipeResult = useCase.getRecipe(recipeId).onStart { emit(Result.Loading) }
-            .asLiveData(viewModelScope.coroutineContext)
+        recipeResult.addSource(useCase.getRecipe(recipeId).onStart { emit(Result.Loading) }
+            .asLiveData(viewModelScope.coroutineContext)) {
+            recipeResult.value = it
+        }
     }
 }
